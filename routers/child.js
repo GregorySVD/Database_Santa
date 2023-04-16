@@ -1,10 +1,14 @@
 const express = require('express')
+const {ChildRecord} = require("../records/child.record");
 
 const childRouter = express.Router();
 
 childRouter
     .get('/', (req, res) => {
-        res.render('children/list.hbs');
+        const childrenList = ChildRecord.listAll();
+        res.render('children/list.hbs', { // send childrenList form child.record to list.hbs views
+            childrenList,
+        });
     });
 
 
