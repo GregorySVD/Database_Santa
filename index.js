@@ -18,6 +18,10 @@ app.engine('.hbs', engine({
 app.set('view engine', '.hbs'); //setting view engine
 
 app.get('/', (req, res) => {
+    res.redirect('/children');
+})
+
+app.get('/children', (req, res) => {
     res.render('children/list.hbs')
 });
 
