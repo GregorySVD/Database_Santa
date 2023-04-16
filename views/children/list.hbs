@@ -1,7 +1,24 @@
 <h2>Children-list</h2>
 <ul>
     {{#each childrenList}}
-        <li>{{this.name}}{{this.gift}}</li>
+        <li>
+            <label>
+                {{this.name}}
+                <select>
+                    <option value="">Empty</option>
+                </select>
+            </label>
+            <button type="button">Save</button>
+        </li>
 
     {{/each}}
 </ul>
+
+<h3>Add new child to Santa list! </h3>
+<form method="post" action="">
+    <label>
+        Name
+        <input type="text"/>
+        <button>Add!</button>
+    </label>
+</form>
