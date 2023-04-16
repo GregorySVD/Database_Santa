@@ -18,7 +18,7 @@ app.engine('.hbs', engine({
 app.set('view engine', '.hbs'); //setting view engine
 
 app.get('/', (req, res) => {
-    res.send('<h1>Hello World!</h1>');
+    res.render('children/list.hbs')
 });
 
 app.use(handleError);
