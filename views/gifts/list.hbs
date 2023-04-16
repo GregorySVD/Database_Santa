@@ -1,6 +1,6 @@
-<h2>List of Children</h2>
+<h2>List of Gifts</h2>
 <ul>
-    {{#each childrenList}}
+    {{#each giftsList}}
         <li>
             <label>
                 {{this.name}}
@@ -14,11 +14,13 @@
     {{/each}}
 </ul>
 
-<h3>Add new child to Santa list! </h3>
+<h3>Add new gift option to Santa storage! </h3>
 <form method="post" action="">
     <label>
         Name
         <input type="text"/>
+        Count
+        <input type="number"/>
         <button>Add!</button>
     </label>
 </form>
