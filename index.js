@@ -15,8 +15,7 @@ app.use(express.urlencoded({
 app.use(express.static('public'));
 //app.use(express.json()); //Content-type: application.json
 app.engine('.hbs', engine({
-    extname: '.hbs',
-    // helpers: handbarsHelpers, //additional helpers to hbs
+    extname: '.hbs', // helpers: handbarsHelpers, //additional helpers to hbs
 }));
 app.set('view engine', '.hbs'); //setting view engine
 

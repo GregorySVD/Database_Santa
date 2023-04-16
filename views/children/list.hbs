@@ -6,6 +6,9 @@
                 {{this.name}}
                 <select>
                     <option value="">Empty</option>
+                    {{#each ../giftsList}}
+                        <option value="{{this.name}}">{{this.name}}</option>
+                    {{/each}}
                 </select>
             </label>
             <button type="button">Save</button>
@@ -18,7 +21,7 @@
 <form method="post" action="">
     <label>
         Name
-        <input type="text"/>
+        <input type="text" name="name"/>
         <button>Add!</button>
     </label>
 </form>

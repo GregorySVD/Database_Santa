@@ -2,13 +2,7 @@
 <ul>
     {{#each giftsList}}
         <li>
-            <label>
-                {{this.name}}
-                <select>
-                    <option value="">Empty</option>
-                </select>
-            </label>
-            <button type="button">Save</button>
+            {{this.name}} ({{this.count}} pcs)
         </li>
 
     {{/each}}
@@ -18,9 +12,12 @@
 <form method="post" action="">
     <label>
         Name
-        <input type="text"/>
-        Count
-        <input type="number"/>
-        <button>Add!</button>
+        <input type="text" name="name"/>
+
     </label>
+    <label>
+        Count [pcs]
+        <input type="number" name="count"/>
+    </label>
+    <button>Add!</button>
 </form>
