@@ -2,14 +2,14 @@
 <ul>
     {{#each giftsList}}
         <li>
-            {{this.name}} ({{this.count}} pcs)
+            {{this.name}} <i>({{this.count}} pcs.</i>)
         </li>
 
     {{/each}}
 </ul>
 
 <h3>Add new gift option to Santa storage! </h3>
-<form method="post" action="">
+<form method="POST" action="/gift">
     <label>
         Name
         <input type="text" name="name"/>
