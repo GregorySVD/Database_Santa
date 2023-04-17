@@ -9,6 +9,18 @@ giftRouter
         res.render('gifts/list.hbs', { // send childrenList form child.record to list.hbs views
             giftsList,
         });
+    })
+
+    .post('/', async (req, res) => {
+        // console.log(req.body); //count isn't number so:
+        const data = {
+            ...req.body,
+            count: Number(req.body.count),
+        }; //making sure data count is a number
+        const newGift = new GiftRecord(data); //create new gift using GiftRecord
+        await newGift.insert();
+
+        res.redirect('/gift');
     });
 
 
