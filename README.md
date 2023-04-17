@@ -7,3 +7,4 @@ npm i express
 npm i express-handlebars
 npm i method-override  
 npm i mysql2
+npm i uuid

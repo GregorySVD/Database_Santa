@@ -15,6 +15,12 @@ class GiftRecord {
         this.count = obj.count;
     }
 
+    async insert() {
+        if (!this.id) {
+            this.id = await uuid()
+        }
+    }
+
     static async listAll() { //static method = function which operates on all records, not just one
         const [results] = await pool.execute('SELECT * FROM `gifts`');
         return results;
