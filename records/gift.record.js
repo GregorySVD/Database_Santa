@@ -1,5 +1,6 @@
 const {pool} = require("../utils/db");
 const {ValidationError} = require("../utils/errors");
+const {v4: uuid} = require("uuid");
 
 class GiftRecord {
     constructor(obj) {
@@ -17,8 +18,14 @@ class GiftRecord {
 
     async insert() {
         if (!this.id) {
-            this.id = await uuid()
+            this.id = uuid();
         }
+        await pool.execute('INSERT INTO `gifts` VALUES (:id, :name, :count)', {
+            id: this.id,
+            name: this.name,
+            count: this.count,
+        });
+        return this.id;
     }
 
     static async listAll() { //static method = function which operates on all records, not just one
