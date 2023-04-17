@@ -6,6 +6,8 @@ const {homeRouter} = require("./routers/home");
 const {childRouter} = require("./routers/child");
 const {giftRouter} = require("./routers/gift");
 
+require('./utils/db'); //connection to database
+
 const app = express();
 
 app.use(methodOverride('_method')); //to override method for REST API
