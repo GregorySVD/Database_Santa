@@ -5,7 +5,7 @@ const {handleError} = require("./utils/errors");
 const {homeRouter} = require("./routers/home");
 const {childRouter} = require("./routers/child");
 const {giftRouter} = require("./routers/gift");
-
+require("express-async-errors");
 require('./utils/db'); //connection to database
 
 const app = express();

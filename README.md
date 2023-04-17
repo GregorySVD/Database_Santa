@@ -8,3 +8,4 @@ npm i express-handlebars
 npm i method-override  
 npm i mysql2
 npm i uuid
+npm i express-async-errors
