@@ -2,17 +2,20 @@
 <ul>
     {{#each childrenList}}
         <li>
-            <label>
-                {{this.name}}
-                <select>
-                    <option value="">Empty</option>
-                    {{#each ../giftsList}}
-                        <option value="{{this.id}}" {{#if (equals this.id ../giftId)}}selected="selected"{{/if}}>{{this
-                        .name}}</option>
-                    {{/each}}
-                </select>
-            </label>
-            <button type="button">Save</button>
+            <form method="POST" action="">
+                <label>
+                    {{this.name}}
+                    <select>
+                        <option value="">Empty</option>
+                        {{#each ../giftsList}}
+                            <option value="{{this.id}}"
+                                    {{#if (equals this.id ../giftId)}}selected="selected"{{/if}}>{{this
+                            .name}}</option>
+                        {{/each}}
+                    </select>
+                </label>
+                <button type="button">Save</button>
+            </form>
         </li>
 
     {{/each}}
