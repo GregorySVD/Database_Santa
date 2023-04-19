@@ -27,6 +27,9 @@ childRouter
         }
         const gift = req.body.giftId === '' ? null : await GiftRecord.getOne(req.body.giftId)//empty string means no
         // gift
+        if (gift) {
+            console.log(gift.count)
+        }
         child.giftId = gift === null ? null : gift.id;
         await child.update();
 
