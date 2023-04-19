@@ -22,12 +22,11 @@ childRouter
     })
     .patch('/gift/:childId', async (req, res) => {
         const child = await ChildRecord.getOne(req.params.childId);
-
-        console.log(child);
         if (child === null) {
             throw new ValidationError('Child cannot be find, try other child');
         }
-        
+        const gift = req.body.giftId === '' ? null : await GiftRecord.getOne(req.body.giftId)//empty string means no
+        // gift
     });
 
 
