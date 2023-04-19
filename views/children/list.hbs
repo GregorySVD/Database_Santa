@@ -2,7 +2,7 @@
 <ul>
     {{#each childrenList}}
         <li>
-            <form method="POST" action="/child/gift/{{this.id}}?_method=PATCH">
+            <form action="/child/gift/{{this.id}}?_method=PATCH">
                 <label>
                     {{this.name}}
                     <select name="giftId">
@@ -14,7 +14,7 @@
                         {{/each}}
                     </select>
                 </label>
-                <button type="button">Save</button>
+                <button type="submit">Save</button>
             </form>
         </li>
 
