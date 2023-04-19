@@ -23,18 +23,27 @@ class ChildRecord {
         return this.id;
     }
 
+    async update() {
+        await pool.execute("UPDATE `children` SET `name` = :name, `giftId` = :giftId WHERE `id` = :id", {
+            id: this.id,
+            name: this.name,
+            giftId: this.giftId,
+        });
+    }
 
     static async getOne(id) {
         const [results] = await pool.execute("SELECT * FROM `children` WHERE `id` = :id", {
             id,
         });
-        return results.length === 0 ? null : results[0];
+        return results.length === 0 ? null : new ChildRecord(results[0]); //result need to be returned as an object
+        // typeof
+        // ChildRecord
     }
 
 
     static async listAll() { //static method = function which operates on all records, not just one
         const [results] = await pool.execute('SELECT * FROM `children` ORDER BY `name` ASC');
-        return results;
+        return results.map(obj => new ChildRecord(obj));
     }
 }
 
