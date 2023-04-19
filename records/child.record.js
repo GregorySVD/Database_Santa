@@ -24,6 +24,14 @@ class ChildRecord {
     }
 
 
+    static async getOne(id) {
+        const [results] = await pool.execute("SELECT * FROM `children` WHERE `id` = :id", {
+            id,
+        });
+        return results.length === 0 ? null : results[0];
+    }
+
+
     static async listAll() { //static method = function which operates on all records, not just one
         const [results] = await pool.execute('SELECT * FROM `children` ORDER BY `name` ASC');
         return results;

@@ -1,6 +1,7 @@
 const express = require('express')
 const {ChildRecord} = require("../records/child.record");
 const {GiftRecord} = require("../records/gift.record");
+const {ValidationError} = require("../utils/errors");
 
 const childRouter = express.Router();
 
@@ -18,6 +19,15 @@ childRouter
         await newChild.insert();
 
         res.redirect('/child');
+    })
+    .patch('/gift/:childId', async (req, res) => {
+        const child = await ChildRecord.getOne(req.params.childId);
+
+        console.log(child);
+        if (child === null) {
+            throw new ValidationError('Child cannot be find, try other child');
+        }
+        
     });
 
 
