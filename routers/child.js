@@ -25,12 +25,12 @@ childRouter
         if (child === null) {
             throw new ValidationError('Child cannot be find, try other child');
         }
+
         const gift = req.body.giftId === '' ? null : await GiftRecord.getOne(req.body.giftId)//empty string means no
-        // gift
         if (gift) {
             console.log(gift.count)
         }
-        child.giftId = gift === null ? null : gift.id;
+        child.giftId = gift?.id ?? null;
         await child.update();
 
         res.redirect('/child');
