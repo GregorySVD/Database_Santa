@@ -28,7 +28,10 @@ childRouter
 
         const gift = req.body.giftId === '' ? null : await GiftRecord.getOne(req.body.giftId)//empty string means no
         if (gift) {
-            console.log(gift.count)
+            if (gift.count <= await gift.countGivenGifts()) {
+                throw new ValidationError('This kind of gift has already been taken by another child');
+            }
+            ;
         }
         child.giftId = gift?.id ?? null;
         await child.update();

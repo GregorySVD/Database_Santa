@@ -41,9 +41,9 @@ class GiftRecord {
     }
 
     async countGivenGifts() {
-        const [{count}] = await pool.execute('SELECT COUNT(*) AS `count` FROM `children` WHERE `giftId` = :id', {
+        const [[{count}]] = await pool.execute('SELECT COUNT(*) AS `count` FROM `children` WHERE `giftId` = :id', {
             id: this.id,
-        });
+        });  //answer[0][0].count
         return count;
     }
 }
