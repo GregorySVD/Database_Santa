@@ -10,6 +10,7 @@ class ChildRecord {
 
         this.id = obj.id;
         this.name = obj.name;
+        this.giftId = obj.giftId;
     }
 
     async insert() {
@@ -24,6 +25,7 @@ class ChildRecord {
     }
 
     async update() {
+        console.log('this.giftId', this.giftId);
         await pool.execute("UPDATE `children` SET `name` = :name, `giftId` = :giftId WHERE `id` = :id", {
             id: this.id,
             name: this.name,
@@ -43,7 +45,7 @@ class ChildRecord {
 
     static async listAll() { //static method = function which operates on all records, not just one
         const [results] = await pool.execute('SELECT * FROM `children` ORDER BY `name` ASC');
-        return results; //.map(obj => new ChildRecord(obj))
+        return results.map(obj => new ChildRecord(obj))
     }
 }
 
