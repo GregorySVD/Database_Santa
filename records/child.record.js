@@ -33,6 +33,15 @@ class ChildRecord {
         });
     }
 
+    async delete() {
+        if (!this.id) {
+            throw new ValidationError('Cannot delete child that does not exist');
+        }
+        await pool.execute("DELETE FROM `children` WHERE `id` = :id", {
+            id: this.id,
+        })
+    }
+
     static async getOne(id) {
         const [results] = await pool.execute("SELECT * FROM `children` WHERE `id` = :id", {
             id,
