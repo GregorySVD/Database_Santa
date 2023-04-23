@@ -12,13 +12,14 @@ childRouter
         res.render('children/list.hbs', { // send childrenList form child.record to list.hbs views
             childrenList,
             giftsList,
+
         });
+
     })
     .post('/', async (req, res) => {
         const newChild = new ChildRecord(req.body); //create new gift using GiftRecord
         await newChild.insert();
-
-        res.redirect('/child');
+        res.redirect('/child?added=true');
     })
     .patch('/gift/:childId', async (req, res) => {
         const child = await ChildRecord.getOne(req.params.childId);
