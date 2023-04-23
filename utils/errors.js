@@ -1,5 +1,4 @@
-class ValidationError extends Error {
-} // classes inherited from Error will react like :
+// classes inherited from Error will react like :
 
 const handleError = (err, req, res, next) => {
 //    for 404 errors :
@@ -12,17 +11,20 @@ const handleError = (err, req, res, next) => {
     }
      */
     console.error(err);
-
     res
         .status(err instanceof ValidationError ? 400 : 500) //if err is instanceof class ValidationError send 400 if
-        // not send 500
-        .render('error', {
-            message: err instanceof ValidationError ? err.message : 'Sorry for inconvenient :( we are working on! that' +
-                ' Please try again later'
-            , //err.message = risk of safety issues soo we are checking if we know this error = instanceof
-            // if not send err.message
-        });
+    // not send 500
+    res.render('error.hbs', {
+        message: err instanceof ValidationError ? err.message : 'Sorry, we are working on same issue ',
+    });//err.message = risk of safety issues soo we are checking if we know this error = instanceof// if not send err.message
 };
+
+class ValidationError extends Error {
+    constructor(message) {
+        super(message);
+        this.status = 400;
+    }
+}
 
 module.exports = {
     handleError,

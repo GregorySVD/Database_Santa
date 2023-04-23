@@ -1,3 +1,4 @@
+require("express-async-errors");
 const express = require("express");
 const methodOverride = require("method-override");
 const {engine} = require("express-handlebars");
@@ -5,7 +6,6 @@ const {handleError} = require("./utils/errors");
 const {homeRouter} = require("./routers/home");
 const {childRouter} = require("./routers/child");
 const {giftRouter} = require("./routers/gift");
-require("express-async-errors");
 require('./utils/db');
 const {handbarsHelpers} = require("./utils/handlebars-helper"); //connection to database
 
