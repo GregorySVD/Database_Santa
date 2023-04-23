@@ -32,13 +32,23 @@ childRouter
             if (gift.count <= await gift.countGivenGifts()) {
                 throw new ValidationError('This kind of gift has already been taken by another child');
             }
-            ;
         }
         child.giftId = gift?.id ?? null;
         await child.update();
 
         res.redirect('/child');
-    });
+    })
+    .get('/delete/:id', async (req, res) => {
+        const testId = '75143cd4-32bb-4906-ac45-f2966c323d92'
+        const child = await ChildRecord.getOne(testId);
+        if (child === null) {
+            throw new ValidationError('Child cannot be find, try other child');
+        }
+        console.log(await child.name)
+
+        //await child.delete();
+        res.render('test.hbs', {child: child});
+    })
 
 
 module.exports = {
