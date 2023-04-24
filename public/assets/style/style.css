@@ -1,3 +1,8 @@
+* {
+    color: white;
+    background-color: black;
+}
+
 .error {
     background: #ef9a9a;
     border: 3px solid #f44336;
@@ -12,4 +17,20 @@
     padding: 20px;
     margin: 10px auto;
     text-align: center;
+}
+
+.li-one-child-from-list {
+    display: inline-block;
+    margin-top: 1%;
+    border: 2px solid red;
+    padding: 2%;
+    border-radius: 10px;
+}
+
+.li-one-child-from-list:hover {
+    border: 2px solid green;
+}
+
+button:hover {
+    color: dimgray;
 }

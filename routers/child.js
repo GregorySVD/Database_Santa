@@ -39,7 +39,7 @@ childRouter
         res.redirect('/child');
     })
     .get('/delete/:id', async (req, res) => {
-        const testId = '75143cd4-32bb-4906-ac45-f2966c323d92'
+        const testId = '855b731d-d5bb-4045-a613-44e35dbb3e04'
         const child = await ChildRecord.getOne(testId);
         if (child === null) {
             throw new ValidationError('Child cannot be find, try other child');
