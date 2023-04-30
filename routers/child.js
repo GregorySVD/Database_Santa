@@ -38,16 +38,14 @@ childRouter
 
         res.redirect('/child');
     })
-    .get('/delete/:id', async (req, res) => {
-        const testId = '855b731d-d5bb-4045-a613-44e35dbb3e04'
-        const child = await ChildRecord.getOne(testId);
+    .delete('/delete/:id', async (req, res) => {
+        const child = await ChildRecord.getOne(req.params.id);
+        console.log(await child);
         if (child === null) {
             throw new ValidationError('Child cannot be find, try other child');
         }
-        console.log(await child.name)
-
-        //await child.delete();
-        res.render('test.hbs', {child: child});
+        await child.delete();
+        res.redirect('/child');
     })
 
 

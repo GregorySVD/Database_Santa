@@ -14,11 +14,11 @@
                         {{/each}}
                     </select>
                 </label>
-                <button type="submit">Save</button>
+                <button type="submit">Save gift</button>
             </form>
-            <form method="GET" action="/child/delete/{{this.id}}">
+            <form method="POST" action="/child/delete/{{this.id}}?_method=DELETE">
                 <button class="remove-task-btn" type="submit">
-                    Remove
+                    Remove from Santa list
                 </button>
             </form>
         </li>
