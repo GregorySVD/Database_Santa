@@ -3,6 +3,14 @@
     background-color: black;
 }
 
+.nav-menu {
+    display: flex;
+    justify-content: flex-end;
+    flex-direction: row;
+    border: 1px solid rebeccapurple;
+}
+
+
 .error {
     background: #ef9a9a;
     border: 3px solid #f44336;

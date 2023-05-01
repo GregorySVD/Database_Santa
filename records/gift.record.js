@@ -46,7 +46,9 @@ class GiftRecord {
         });  //answer[0][0].count
         return count;
     }
-    async deleteGifts() {} @TODO
+
+    async deleteGifts() {
+    }
 }
 
 module.exports = {
