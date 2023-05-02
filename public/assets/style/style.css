@@ -1,6 +1,8 @@
 * {
     color: white;
     background-color: black;
+    text-align: center;
+    margin: 0;
 }
 
 .nav-menu {
@@ -27,6 +29,9 @@ nav ul li {
 
 }
 
+.ul-list-of-child-section {
+    padding-inline-start: 0;
+}
 
 .error {
     background: #ef9a9a;
@@ -36,22 +41,14 @@ nav ul li {
     width: 80%;
 }
 
-.deletingChild {
-    border: 2px solid red;
-    border-radius: 3px;
-    padding: 20px;
-    margin: 10px auto;
-    text-align: center;
-}
 
 .li-one-child-from-list {
     display: flex;
     margin-top: 1%;
     border: 2px solid red;
-    padding: 2%;
     border-radius: 10px;
-    width: 60%;
     justify-content: center;
+    padding: 2%;
 }
 
 
@@ -63,6 +60,10 @@ nav ul li {
     display: flex;
     align-content: center;
     justify-content: space-evenly;
+}
+
+.list-of-child-section {
+    border: 2px dashed gray;
 }
 
 button:hover {

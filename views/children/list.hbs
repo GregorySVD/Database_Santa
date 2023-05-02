@@ -1,37 +1,40 @@
-<h2 class="list-h2">List of Good Children</h2>
+<main>
+    <h2 class="list-h2">List of Good Children</h2>
 
-<ul>
-    {{#each childrenList}}
-        <li class="li-one-child-from-list">
-            <form method="POST" action="/child/gift/{{this.id}}?_method=PATCH">
-                <label>
-                    {{this.name}}
-                    <select name="giftId">
-                        <option value="">Empty</option>
-                        {{#each ../giftsList}}
-                            <option value="{{this.id}}"
-                                    {{#if (equals this.id ../giftId)}}selected="selected"{{/if}}>{{this.name}}</option>
-                        {{/each}}
-                    </select>
-                </label>
-                <button type="submit">Save gift</button>
-            </form>
-            <form method="POST" action="/child/delete/{{this.id}}?_method=DELETE">
-                <button class="remove-task-btn" type="submit">
-                    Remove from Santa list
-                </button>
-            </form>
-        </li>
-    {{/each}}
-</ul>
-<h3>Add new child to Santa list! </h3>
-<form method="POST" action="/child">
-    <label>
-        Name
-        <input type="text" name="name"/>
-        <button>Add!</button>
-    </label>
-</form>
-<p>
-
-</p>
+    <section class="list-of-child-section">
+        <ul class="ul-list-of-child-section">
+            {{#each childrenList}}
+                <li class="li-one-child-from-list">
+                    <form method="POST" action="/child/gift/{{this.id}}?_method=PATCH">
+                        <label>
+                            {{this.name}}
+                            <select name="giftId">
+                                <option value="">Empty</option>
+                                {{#each ../giftsList}}
+                                    <option value="{{this.id}}"
+                                            {{#if (equals this.id ../giftId)}}selected="selected"{{/if}}>{{this.name}}</option>
+                                {{/each}}
+                            </select>
+                        </label>
+                        <button type="submit">Save gift</button>
+                    </form>
+                    <form method="POST" action="/child/delete/{{this.id}}?_method=DELETE">
+                        <button class="remove-task-btn" type="submit">
+                            Remove from Santa list
+                        </button>
+                    </form>
+                </li>
+            {{/each}}
+        </ul>
+    </section>
+    <section class="adding-child-section">
+        <h3>Add new child to Santa list! </h3>
+        <form method="POST" action="/child">
+            <label>
+                Name
+                <input type="text" name="name"/>
+                <button>Add!</button>
+            </label>
+        </form>
+    </section>
+</main>
