@@ -5,9 +5,26 @@
 
 .nav-menu {
     display: flex;
-    justify-content: flex-end;
-    flex-direction: row;
+    justify-content: space-evenly;
     border: 1px solid rebeccapurple;
+}
+
+.main-header {
+    text-align: center;
+}
+
+nav ul {
+    display: flex;
+    gap: 20px;
+}
+
+nav ul li {
+    border: 1px solid lightgreen;
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-end;
+    padding: 20px;
+
 }
 
 
