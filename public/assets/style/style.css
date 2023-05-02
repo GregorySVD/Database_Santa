@@ -69,3 +69,8 @@ nav ul li {
 button:hover {
     color: dimgray;
 }
+
+footer {
+    padding: 20px;
+    border-top: 1px solid gold;
+}
